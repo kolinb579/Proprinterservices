@@ -1,1233 +1,1014 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProPrinterServices | Printer Setup & Support</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="ProPrinterServices provides printer setup, installation, Wi-Fi connection, configuration, and troubleshooting support for homes and businesses.">
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Printer Support | Setup, Installation & Troubleshooting</title>
 
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-<!-- Custom -->
-<link rel="stylesheet" href="styles.css">
+    <meta name="description"
+          content="Professional printer support for setup, installation, Wi-Fi connection, drivers, configuration, and troubleshooting for home and business users.">
 
-<style>
-.stat{
-    padding: 25px 15px;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f9ff;
+            color: #1f2b36;
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            background: #ffffff;
+            border-bottom: 1px solid #e8eef5;
+        }
+
+        .logo {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+            margin-right: 10px;
+        }
+
+        .site-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #17324d;
+        }
+
+        .nav-call {
+            margin-left: auto;
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2fa44b;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            background: linear-gradient(140deg, #1e89ff, #0059ff);
+            color: #ffffff;
+            padding: 75px 20px 130px;
+            border-radius: 0 0 50px 50px;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .hero > p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 19px;
+            opacity: 0.95;
+        }
+
+        .support-card {
+            background: #ffffff;
+            color: #333333;
+            max-width: 780px;
+            margin: 35px auto -80px;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        .support-card h2 {
+            color: #17324d;
+            margin-bottom: 12px;
+            font-size: 27px;
+        }
+
+        .support-card p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #5b6670;
+            font-size: 16px;
+        }
+
+        .support-btn {
+            display: inline-block;
+            padding: 15px 32px;
+            background: #2fa44b;
+            border-radius: 40px;
+            color: #ffffff;
+            font-size: 18px;
+            margin-top: 22px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 6px 15px rgba(47, 164, 75, 0.25);
+            transition: 0.2s ease;
+        }
+
+        .support-btn:hover {
+            transform: translateY(-2px);
+            background: #248c3d;
+        }
+
+        /* Services */
+        .services {
+            max-width: 1100px;
+            margin: 120px auto 0;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .service-box {
+            background: #ffffff;
+            padding: 28px 22px;
+            border-radius: 18px;
+            text-align: center;
+            font-size: 16px;
+            border-left: 4px solid #007bff;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+            transition: 0.2s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-3px);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .service-box h3 {
+            color: #17324d;
+            margin-bottom: 8px;
+        }
+
+        .service-box p {
+            color: #66727d;
+            font-size: 14px;
+        }
+
+        /* Support Banner */
+        .support-banner {
+            max-width: 1060px;
+            margin: 30px auto 60px;
+            padding: 45px 25px;
+            text-align: center;
+            background: #eaf4ff;
+            border-radius: 25px;
+        }
+
+        .support-banner h2 {
+            color: #0059c9;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        .support-banner p {
+            color: #596673;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* FAQ */
+        .faq {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 10px 20px 70px;
+        }
+
+        .faq h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #0067ff;
+            font-size: 30px;
+        }
+
+        .faq-item {
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 17px;
+            font-size: 16px;
+            background: #ffffff;
+            border: none;
+            border-bottom: 1px solid #eeeeee;
+            text-align: left;
+            cursor: pointer;
+            font-weight: 600;
+            color: #263746;
+        }
+
+        .faq-question:hover {
+            background: #f8fbff;
+        }
+
+        .faq-answer {
+            display: none;
+            background: #ffffff;
+            padding: 15px 17px;
+            color: #64717d;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            max-width: 900px;
+            margin: 0 auto 45px;
+            padding: 0 20px;
+            text-align: center;
+            color: #78838d;
+            font-size: 13px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: #c7ced6;
+            text-align: center;
+            padding: 35px 15px;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .footer a {
+            margin: 0 12px;
+            color: #b0b8c1;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer p {
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+
+            .navbar {
+                padding: 13px 16px;
+            }
+
+            .site-name {
+                font-size: 18px;
+            }
+
+            .nav-call {
+                padding: 9px 14px;
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 55px 18px 110px;
+                border-radius: 0 0 35px 35px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero > p {
+                font-size: 16px;
+            }
+
+            .support-card {
+                padding: 30px 20px;
+            }
+
+            .support-card h2 {
+                font-size: 23px;
+            }
+
+            .support-btn {
+                width: 100%;
+                font-size: 17px;
+            }
+
+            .services {
+                margin-top: 100px;
+                padding: 30px 16px;
+                grid-template-columns: 1fr;
+            }
+
+            .support-banner {
+                margin: 20px 16px 50px;
+                padding: 35px 20px;
+            }
+
+            .support-banner h2 {
+                font-size: 25px;
+            }
+
+            .faq {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .footer a {
+                display: inline-block;
+                margin: 6px 8px;
+            }
+        }
+		/* ================= LEGAL SECTIONS ================= */
+
+.legal-section {
+    background: #ffffff;
+    padding: 70px 20px;
+    border-top: 1px solid #e8eef5;
 }
 
-.stat .icon{
-    font-size: 34px;
-    color: #0d6efd;
+.legal-alt {
+    background: #f5f9ff;
+}
+
+.legal-container {
+    max-width: 900px;
+    margin: 0 auto;
+	text-align: left;
+}
+
+.legal-container h2 {
+    color: #0059c9;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.legal-updated {
+    text-align: center;
+    color: #78838d;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.legal-container h3 {
+    color: #17324d;
+    font-size: 19px;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.legal-container p {
+    color: #5f6b76;
+    font-size: 15px;
     margin-bottom: 12px;
 }
 
-.stat .num{
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 6px;
+@media (max-width: 700px) {
+
+    .legal-section {
+        padding: 50px 18px;
+    }
+
+    .legal-container h2 {
+        font-size: 27px;
+    }
+
+    .legal-container h3 {
+        font-size: 18px;
+    }
+
+    .legal-container p {
+        font-size: 14px;
+    }
+
 }
-
-.stat .label{
-    color: #6c757d;
-    font-size: 15px;
-}
-
-.about-visit{
-    padding:90px 0;
-}
-
-.section-tag{
-    display:inline-block;
-    padding:8px 16px;
-    background:#eef4ff;
-    color:#0d6efd;
-    font-size:13px;
-    font-weight:600;
-    letter-spacing:1px;
-    border-radius:50px;
-    text-transform:uppercase;
-}
-
-.section-title{
-    font-size:2.4rem;
-    font-weight:700;
-    line-height:1.2;
-    color:#111827;
-    margin-bottom:20px;
-}
-
-.section-text{
-    font-size:17px;
-    line-height:1.8;
-    color:#5f6b7a;
-    margin-bottom:18px;
-}
-
-.about-visit img{
-    width:100%;
-    border-radius:20px;
-    object-fit:cover;
-}
-
-</style>
-
-
+    </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg site-navbar sticky-top">
-  <div class="container">
-    <a class="brand" href="index.html">
-    
-    ProPrinterServices
-</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="navbar-nav ms-auto align-items-lg-center">
-        <li class="nav-item"><a class="nav-link active" href="#header">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <li class="nav-item ms-lg-3 mt-2 mt-lg-0"><a class="btn btn-elite" href="#contact">Request a visit</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <!-- ================= NAVBAR ================= -->
 
-
-<!-- Hero -->
-<header class="hero" id="header">
-  <div class="container position-relative">
-
-    <span class="hero-corner tl">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-        <line x1="0" y1="8" x2="0" y2="0"/>
-        <line x1="0" y1="0" x2="8" y2="0"/>
-      </svg>
-    </span>
-
-    <span class="hero-corner br">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-        <line x1="24" y1="16" x2="24" y2="24"/>
-        <line x1="16" y1="24" x2="24" y2="24"/>
-      </svg>
-    </span>
-
-    <div class="row align-items-center">
-
-      <div class="col-lg-7">
-
-        <div class="eyebrow mb-3">
-          <span class="regmark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="7"/>
-              <line x1="12" y1="1" x2="12" y2="7"/>
-              <line x1="12" y1="17" x2="12" y2="23"/>
-              <line x1="1" y1="12" x2="7" y2="12"/>
-              <line x1="17" y1="12" x2="23" y2="12"/>
-            </svg>
-          </span>
-          Professional Printer Support
-        </div>
-
-        <h1 class="mb-3">
-          Reliable Printer Support Without the Runaround.
-        </h1>
-
-        <p class="lead mb-4">
-          Get practical help with printer setup, installation, Wi-Fi
-          connections, configuration, and common printing problems.
-          ProPrinterServices provides straightforward support designed
-          to help keep your printer working properly.
-        </p>
-
-        <div class="d-flex flex-wrap gap-3">
-
-          <a href="tel:+18345674567" class="btn btn-amber">
-            <i class="bi bi-telephone-fill me-2"></i>
-            +1 (834) 567-4567
-          </a>
-
-          <a href="#contact" class="btn btn-outline-elite btn-black">
-            Request Support
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="col-lg-5 mt-5 mt-lg-0">
-
-        <div class="card-elite">
-
-          <span class="card-tag">
-            How we can help
-          </span>
-
-          <ul class="commit-list">
-
-            <li>
-              <span class="mark good">
-                <i class="bi bi-check-lg"></i>
-              </span>
-              <span>
-                Printer setup, installation, and configuration
-              </span>
-            </li>
-
-            <li>
-              <span class="mark good">
-                <i class="bi bi-check-lg"></i>
-              </span>
-              <span>
-                Wi-Fi, network, computer, and device connection support
-              </span>
-            </li>
-
-            <li>
-              <span class="mark good">
-                <i class="bi bi-check-lg"></i>
-              </span>
-              <span>
-                Troubleshooting for common printer and printing issues
-              </span>
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</header>
-
-
-<!-- Stat Row -->
-<div class="stat-row" id="about">
-
-  <div class="container">
-
-    <div class="row text-center g-0">
-
-      <div class="col-6 col-md-3 stat">
-
-        <div class="icon">
-          <i class="bi bi-printer"></i>
-        </div>
-
-        <div class="num">
-          Printer Setup
-        </div>
-
-        <div class="label">
-          Installation & configuration
-        </div>
-
-      </div>
-
-
-      <div class="col-6 col-md-3 stat">
-
-        <div class="icon">
-          <i class="bi bi-wifi"></i>
-        </div>
-
-        <div class="num">
-          Wi-Fi Support
-        </div>
-
-        <div class="label">
-          Network connection assistance
-        </div>
-
-      </div>
-
-
-      <div class="col-6 col-md-3 stat">
-
-        <div class="icon">
-          <i class="bi bi-grid"></i>
-        </div>
-
-        <div class="num">
-          Major Brands
-        </div>
-
-        <div class="label">
-          HP · Canon · Epson · Brother
-        </div>
-
-      </div>
-
-
-      <div class="col-6 col-md-3 stat">
-
-        <div class="icon">
-          <i class="bi bi-tools"></i>
-        </div>
-
-        <div class="num">
-          Troubleshooting
-        </div>
-
-        <div class="label">
-          Help with common issues
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- About Printer Support -->
-<section class="about-visit py-5 bg-dim">
-
-  <div class="container">
-
-    <div class="regmark-divider">
-
-      <span class="regmark">
-
-        <svg viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             stroke-width="1.5">
-
-          <circle cx="12" cy="12" r="7"/>
-          <line x1="12" y1="1" x2="12" y2="7"/>
-          <line x1="12" y1="17" x2="12" y2="23"/>
-          <line x1="1" y1="12" x2="7" y2="12"/>
-          <line x1="17" y1="12" x2="23" y2="12"/>
-
-        </svg>
-
-      </span>
-
-      <span class="line"></span>
-
-    </div>
-
-
-    <div class="row align-items-center g-5">
-
-
-      <!-- Left Content -->
-      <div class="col-lg-6">
-
-        <span class="section-tag">
-          PRINTER SUPPORT
-        </span>
-
-        <h2 class="section-title mt-3">
-          Practical Help for Your Printer Setup and Everyday Problems
-        </h2>
-
-        <p class="section-text">
-          ProPrinterServices provides printer support for homes and
-          businesses that need help setting up, connecting, configuring,
-          or troubleshooting their printers.
-        </p>
-
-        <p class="section-text">
-          Whether you are installing a new printer, connecting an existing
-          printer to Wi-Fi, or dealing with a common printing issue, our
-          goal is to provide clear and practical assistance based on your
-          setup.
-        </p>
+    <nav class="navbar">
 
        
+        <span class="site-name">
+            ProPrinterServices
+        </span>
 
-      </div>
+        <a
+            href="tel:+18345674567"
+            class="nav-call">
+            📞 Call Now
+        </a>
 
-
-      <!-- Right Image -->
-      <div class="col-lg-6">
-
-        <img
-          src="images/printer-service.png"
-          alt="Professional printer support and installation service"
-          class="img-fluid rounded-4 shadow">
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+    </nav>
 
 
+    <!-- ================= HERO ================= -->
 
-<!-- Printer Support Services -->
-<section class="section" id="services">
+    <header class="hero">
 
-  <div class="container">
+        <h1>
+            Printer Setup & Support
+        </h1>
 
-    <div class="row mb-5">
+        <p>
+            Professional assistance for printer setup,
+            installation, Wi-Fi connection, configuration,
+            drivers, and troubleshooting.
+        </p>
 
-      <div class="col-lg-7">
 
-        <div class="regmark-divider">
+        <div class="support-card">
 
-          <span class="regmark">
-            <svg viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.5">
+            <h2>
+                🖨️ Need Help With Your Printer?
+            </h2>
 
-              <circle cx="12" cy="12" r="7"/>
-              <line x1="12" y1="1" x2="12" y2="7"/>
-              <line x1="12" y1="17" x2="12" y2="23"/>
-              <line x1="1" y1="12" x2="7" y2="12"/>
-              <line x1="17" y1="12" x2="23" y2="12"/>
+            <p>
+                Whether you're setting up a new printer,
+                connecting it to Wi-Fi, installing drivers,
+                or troubleshooting a printing problem,
+                our support team is ready to help.
+            </p>
 
-            </svg>
-          </span>
+            <a
+                href="tel:+18345674567"
+                class="support-btn">
 
-          <span class="line"></span>
+                📞 Call Support:
+                +1 (834) 567-4567
+
+            </a>
 
         </div>
+
+    </header>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="services">
+
+        <div class="service-box">
+
+            <div class="service-icon">
+                🖨️
+            </div>
+
+            <h3>
+                Printer Setup
+            </h3>
+
+            <p>
+                Assistance with new printer installation
+                and initial configuration.
+            </p>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="service-icon">
+                📶
+            </div>
+
+            <h3>
+                Wi-Fi Connection
+            </h3>
+
+            <p>
+                Help connecting your printer to your
+                home or office wireless network.
+            </p>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="service-icon">
+                💻
+            </div>
+
+            <h3>
+                Driver Installation
+            </h3>
+
+            <p>
+                Assistance with printer drivers and
+                compatible printing software.
+            </p>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="service-icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Printer Configuration
+            </h3>
+
+            <p>
+                Configure printer settings,
+                preferences, and device connections.
+            </p>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="service-icon">
+                🔧
+            </div>
+
+            <h3>
+                Troubleshooting
+            </h3>
+
+            <p>
+                Help with common printer errors,
+                offline issues, and printing problems.
+            </p>
+
+        </div>
+
+
+        <div class="service-box">
+
+            <div class="service-icon">
+                🏢
+            </div>
+
+            <h3>
+                Home & Business Support
+            </h3>
+
+            <p>
+                Printer assistance for home users,
+                offices, and small businesses.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="support-banner">
 
         <h2>
-          Printer Support Services
+            Having Printer Problems?
         </h2>
 
-        <p class="text-slate">
-          From setting up a new printer to resolving everyday connection
-          and printing problems, our support services are designed to make
-          printer setup and maintenance easier for homes and businesses.
+        <p>
+            Get assistance with printer setup,
+            connectivity, configuration, and
+            common troubleshooting issues.
         </p>
 
-      </div>
+        <a
+            href="tel:+18345674567"
+            class="support-btn">
 
-    </div>
+            📞 Call for Printer Support
 
+        </a>
 
-    <div class="row g-4">
+    </section>
 
 
-      <!-- Service 1 -->
-      <div class="col-md-6 col-lg-3">
+    <!-- ================= FAQ ================= -->
 
-        <div class="card-elite">
+    <section class="faq">
 
-          <div class="card-icon">
-            <i class="bi bi-printer"></i>
-          </div>
-
-          <h3>
-            Printer Setup
-          </h3>
-
-          <p>
-            Assistance with unpacking, connecting, configuring, and
-            preparing a new printer for everyday use.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- Service 2 -->
-      <div class="col-md-6 col-lg-3">
-
-        <div class="card-elite">
-
-          <div class="card-icon">
-            <i class="bi bi-wifi"></i>
-          </div>
-
-          <h3>
-            Wi-Fi & Network Support
-          </h3>
-
-          <p>
-            Help connecting your printer to a wireless network,
-            computer, laptop, or other supported device.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- Service 3 -->
-      <div class="col-md-6 col-lg-3">
-
-        <div class="card-elite">
-
-          <div class="card-icon">
-            <i class="bi bi-tools"></i>
-          </div>
-
-          <h3>
-            Printer Troubleshooting
-          </h3>
-
-          <p>
-            Assistance with common printing, connection, configuration,
-            and printer setup problems.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- Service 4 -->
-      <div class="col-md-6 col-lg-3">
-
-        <div class="card-elite">
-
-          <div class="card-icon">
-            <i class="bi bi-gear"></i>
-          </div>
-
-          <h3>
-            Printer Configuration
-          </h3>
-
-          <p>
-            Help with basic printer settings, drivers, default printer
-            selection, and supported configuration options.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-  </div>
-
-</section>
-
-
-<!-- How It Works -->
-<section class="section bg-dim">
-
-  <div class="container">
-
-    <div class="regmark-divider">
-
-      <span class="regmark">
-
-        <svg viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             stroke-width="1.5">
-
-          <circle cx="12" cy="12" r="7"/>
-          <line x1="12" y1="1" x2="12" y2="7"/>
-          <line x1="12" y1="17" x2="12" y2="23"/>
-          <line x1="1" y1="12" x2="7" y2="12"/>
-          <line x1="17" y1="12" x2="23" y2="12"/>
-
-        </svg>
-
-      </span>
-
-      <span class="line"></span>
-
-    </div>
-
-
-    <h2 class="mb-5">
-      How Printer Support Works
-    </h2>
-
-
-    <div class="row g-5">
-
-
-      <!-- Step 1 -->
-      <div class="col-md-4">
-
-        <div class="step">
-
-          <div class="step-num">
-            1
-          </div>
-
-          <h3>
-            Tell Us About the Problem
-          </h3>
-
-          <p>
-            Contact us and provide your printer brand, model, and a brief
-            description of the issue you're experiencing.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- Step 2 -->
-      <div class="col-md-4">
-
-        <div class="step">
-
-          <div class="step-num">
-            2
-          </div>
-
-          <h3>
-            Discuss the Support
-          </h3>
-
-          <p>
-            We review the information you provide and discuss the type
-            of printer support that may be appropriate for your situation.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- Step 3 -->
-      <div class="col-md-4">
-
-        <div class="step">
-
-          <div class="step-num">
-            3
-          </div>
-
-          <h3>
-            Get Practical Printer Support
-          </h3>
-
-          <p>
-            We help address the identified issue and provide practical
-            guidance for getting your printer ready to use.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- Final CTA -->
-<section class="section text-center">
-
-  <div class="container">
-
-    <div class="regmark-divider">
-
-      <span class="regmark">
-
-        <svg viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             stroke-width="1.5">
-
-          <circle cx="12" cy="12" r="7"/>
-          <line x1="12" y1="1" x2="12" y2="7"/>
-          <line x1="12" y1="17" x2="12" y2="23"/>
-          <line x1="1" y1="12" x2="7" y2="12"/>
-          <line x1="17" y1="12" x2="23" y2="12"/>
-
-        </svg>
-
-      </span>
-
-      <span class="line"></span>
-
-    </div>
-
-
-    <h2 class="mb-3">
-      Need Help With Your Printer?
-    </h2>
-
-    <p class="text-slate mb-4">
-      Tell us about your printer and the issue you're experiencing,
-      or call our support line to discuss your printer support needs.
-    </p>
-
-
-    <div class="d-flex justify-content-center flex-wrap gap-3">
-
-      <a href="tel:+18345674567" class="btn btn-amber">
-        <i class="bi bi-telephone-fill me-2"></i>
-        Call Printer Support
-      </a>
-
-      <a href="#contact" class="btn btn-outline-elite">
-        Request Support
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="section" id="contact">
-  <div class="container">
-    <div class="row g-5">
-<div class="eyebrow mb-3">
-      <span class="regmark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7"/><line x1="12" y1="1" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="23"/><line x1="1" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="23" y2="12"/></svg></span>
-      Contact
-    </div>
-    <h1 class="mb-3">Tell us about your printer.</h1>
-    <p class="lead">Contact us to tell us about your printer and the issue you're experiencing. We'll discuss the available support options with you.</p>
-     
-      <div class="col-lg-12">
-        <div class="card-elite mb-4">
-          <span class="card-tag">Direct contact</span>
-          <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
-            
-            <li class="d-flex gap-3 align-items-start">
-              <i class="bi bi-telephone text-slate"></i>
-              <span>+1 (834) 567-4567</span>
-            </li>
-            <li class="d-flex gap-3 align-items-start">
-              <i class="bi bi-geo-alt text-slate"></i>
-              <span>14 Rosemont Lane, New York, NY 10001, USA.</span>
-            </li>
-            <li class="d-flex gap-3 align-items-start">
-              <i class="bi bi-clock text-slate"></i>
-              <span>Mon–Fri 8:00 AM–6:00 PM · Sat 9:00 AM–2:00 PM</span>
-            </li>
-          </ul>
-		 
-        </div>
-
-        
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- Commitment Section -->
-<section class="section bg-ink">
-
-  <div class="container">
-
-    <div class="row align-items-center g-5">
-
-
-      <div class="col-lg-6">
-
-        <div class="eyebrow mb-3">
-          Our Commitment
-        </div>
-
-        <h2 class="mb-3">
-          Clear Support. Straightforward Service.
+        <h2>
+            Frequently Asked Questions
         </h2>
 
-        <p class="text-slate">
-          Printer problems can be frustrating. Our goal is to provide
-          straightforward support without unnecessary complexity or
-          confusing technical language.
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                How do I connect my printer to Wi-Fi?
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Most wireless printers can be connected
+                    through the printer's network settings.
+                    Follow the manufacturer's setup instructions
+                    or contact support for assistance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Why is my printer showing as offline?
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    An offline printer may be caused by a
+                    network connection, driver, cable, or
+                    printer configuration issue.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Can you help install printer drivers?
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Yes. Support can help guide you through
+                    locating, installing, and configuring
+                    compatible printer software.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                My printer is not detected by my computer. What can I do?
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Check the printer connection, network,
+                    USB cable, and installed drivers. If the
+                    issue continues, contact support for
+                    troubleshooting assistance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Do you support home and business printers?
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    Yes. The website provides general printer
+                    setup and troubleshooting assistance for
+                    home users and small businesses.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= DISCLAIMER ================= -->
+
+    <div class="disclaimer">
+
+        <p>
+            ProPrinterServices is an independent printer
+            support service and is not affiliated with,
+            endorsed by, or sponsored by any printer
+            manufacturer or brand.
         </p>
 
-      </div>
-
-
-      <div class="col-lg-6">
-
-        <ul class="commit-list">
-
-          <li>
-
-            <span class="mark good">
-              <i class="bi bi-check-lg"></i>
-            </span>
-
-            <span>
-              We explain the support needed before proceeding.
-            </span>
-
-          </li>
-
-
-          <li>
-
-            <span class="mark good">
-              <i class="bi bi-check-lg"></i>
-            </span>
-
-            <span>
-              We provide practical assistance for common printer issues.
-            </span>
-
-          </li>
-
-
-          <li>
-
-            <span class="mark good">
-              <i class="bi bi-check-lg"></i>
-            </span>
-
-            <span>
-              We support many popular printer brands and models.
-            </span>
-
-          </li>
-
-
-          <li>
-
-            <span class="mark good">
-              <i class="bi bi-check-lg"></i>
-            </span>
-
-            <span>
-              We focus on clear communication and straightforward service.
-            </span>
-
-          </li>
-
-        </ul>
-
-      </div>
-
     </div>
+<!-- ================= PRIVACY POLICY ================= -->
 
-  </div>
+<section id="privacy" class="legal-section">
 
-</section>
+    <div class="legal-container">
 
+        <h2>Privacy Policy</h2>
 
+        <p class="legal-updated">
+            <strong>Last Updated: August 26, 2026</strong>
+        </p>
 
-<!-- =========================
-     PRIVACY POLICY
-========================= -->
-<section class="section" id="privacy">
-  <div class="container">
-    <div class="eyebrow mb-3">
-      <span class="regmark">
-        <i class="bi bi-shield-lock"></i>
-      </span>
-      Privacy Policy
-    </div>
-    <h1 class="mb-3">Your privacy matters to us.</h1>
-    <p class="lead">
-      This Privacy Policy explains what information we collect, how we use it,
-      and the choices you have when using the ProPrinterServices website and
-      requesting our onsite printer services.
-    </p>
-  <p>
-  <strong>Last Updated: August 2026</strong>
-</p>
-    <!-- Information We Collect -->
-    <div class="svc-row row align-items-center g-4">
+        <p>
+            At ProPrinterServices, we respect your privacy and are
+            committed to handling personal information responsibly.
+            This Privacy Policy explains what information may be
+            collected when you visit our website, contact us, or
+            request printer support, and how that information may
+            be used.
+        </p>
 
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-person-lines-fill"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
         <h3>1. Information We Collect</h3>
 
-        <p class="text-slate mb-0">
-          When you contact us, request printer support, or schedule a service,
-          we may collect information such as your name, telephone number,
-          email address, service address, printer brand or model, and details
-          about the support you are requesting. We only ask for information
-          that is reasonably necessary to respond to your request and provide
-          our services.
+        <p>
+            Depending on how you interact with our website, we may
+            collect information that you voluntarily provide, such as
+            your name, email address, phone number, and the details
+            included in a support request.
         </p>
-      </div>
+
+        <p>
+            We may also automatically receive limited technical
+            information, such as browser type, device type, operating
+            system, approximate location, IP address, referring pages,
+            and information about how you interact with the website.
+        </p>
+
+        <h3>2. Information You Provide During Support Requests</h3>
+
+        <p>
+            If you contact us regarding printer setup,
+            installation, Wi-Fi connectivity, drivers,
+            configuration, or troubleshooting, we may use the
+            information you provide to understand your request and
+            communicate with you about the requested assistance.
+        </p>
+
+        <p>
+            Please do not submit passwords, payment card numbers,
+            authentication codes, recovery codes, security questions,
+            or other highly sensitive credentials through this website.
+        </p>
+
+        <h3>3. How We Use Information</h3>
+
+        <p>
+            Information we collect may be used to:
+        </p>
+
+        <ul class="privacy-list">
+            <li>Respond to support and contact requests.</li>
+            <li>Communicate with users about requested assistance.</li>
+            <li>Provide information about our support services.</li>
+            <li>Maintain and improve website functionality.</li>
+            <li>Monitor website performance and security.</li>
+            <li>Prevent fraud, abuse, or unauthorized activity.</li>
+            <li>Comply with applicable legal obligations.</li>
+        </ul>
+
+        <h3>4. Phone Calls and Communications</h3>
+
+        <p>
+            When you use a telephone number displayed on this website
+            to contact our support service, your telephone carrier or
+            communications provider may process information associated
+            with the call. We do not control the privacy practices of
+            telecommunications providers.
+        </p>
+
+        <h3>5. Cookies and Similar Technologies</h3>
+
+        <p>
+            Our website may use cookies, local storage, pixels, or
+            similar technologies to maintain website functionality,
+            understand visitor activity, improve performance, and
+            remember certain preferences.
+        </p>
+
+        <p>
+            Where applicable, analytics or other third-party services
+            may place cookies or collect technical information in
+            accordance with their own privacy policies.
+        </p>
+
+        <h3>6. Analytics</h3>
+
+        <p>
+            We may use analytics tools to understand general website
+            traffic, page usage, device information, and other
+            aggregated website activity. Analytics information is
+            generally used to improve website performance and user
+            experience.
+        </p>
+
+        <h3>7. Third-Party Service Providers</h3>
+
+        <p>
+            We may use third-party providers for services such as
+            website hosting, analytics, email delivery, security,
+            communications, or technical infrastructure.
+        </p>
+
+        <p>
+            These providers may process information on our behalf
+            where necessary to provide their services. We do not
+            authorize third parties to use personal information for
+            purposes unrelated to the services they provide to us,
+            subject to their applicable terms and policies.
+        </p>
+
+        <h3>8. Information Sharing</h3>
+
+        <p>
+            We do not sell or rent personal information to third
+            parties.
+        </p>
+
+        <p>
+            Information may be disclosed when reasonably necessary
+            to operate the website, provide requested support,
+            work with service providers, protect the website and
+            its users, comply with legal requirements, or respond
+            to lawful requests from authorities.
+        </p>
+
+        <h3>9. Data Security</h3>
+
+        <p>
+            We take reasonable measures designed to protect personal
+            information against unauthorized access, alteration,
+            disclosure, or destruction.
+        </p>
+
+        <p>
+            However, no website, internet transmission, electronic
+            storage system, or method of communication can be
+            guaranteed to be completely secure. Users should avoid
+            submitting sensitive credentials through contact forms
+            or unsolicited support communications.
+        </p>
+
+        <h3>10. Data Retention</h3>
+
+        <p>
+            We may retain personal information for as long as
+            reasonably necessary to respond to requests, provide
+            services, maintain business records, resolve disputes,
+            protect against misuse, or comply with applicable legal
+            obligations.
+        </p>
+
+        <h3>11. Your Privacy Rights</h3>
+
+        <p>
+            Depending on your location and applicable law, you may
+            have rights relating to your personal information,
+            including the right to request access, correction,
+            deletion, restriction, or information about how your
+            information is processed.
+        </p>
+
+        <p>
+            To make a privacy-related request, please contact us
+            using the contact information provided on this website.
+            We may need to verify a request before taking action.
+        </p>
+
+        <h3>12. Children's Privacy</h3>
+
+        <p>
+            Our website is intended for a general audience and is
+            not directed toward children under the age required by
+            applicable privacy laws. We do not knowingly request
+            personal information from children for purposes that
+            require parental consent.
+        </p>
+
+        <h3>13. Third-Party Websites</h3>
+
+        <p>
+            Our website may contain links to third-party websites,
+            services, or resources. These websites operate
+            independently and may have their own privacy policies.
+            We are not responsible for the privacy practices,
+            content, or security of third-party websites.
+        </p>
+
+        <h3>14. Independent Support Service</h3>
+
+        <p>
+            ProPrinterServices is an independent printer support
+            service. References to printer manufacturers, products,
+            operating systems, or other third-party brands are for
+            identification and support purposes only.
+        </p>
+
+        <p>
+            ProPrinterServices is not affiliated with, sponsored by,
+            or endorsed by any printer manufacturer unless expressly
+            stated otherwise.
+        </p>
+
+        <h3>15. Changes to This Privacy Policy</h3>
+
+        <p>
+            We may update this Privacy Policy from time to time to
+            reflect changes to our website, services, technology,
+            legal requirements, or privacy practices. The updated
+            version will be posted on this page with a revised
+            "Last Updated" date.
+        </p>
+
+        <h3>16. Contact Us</h3>
+
+        <p>
+            If you have questions, concerns, or requests regarding
+            this Privacy Policy or the handling of your information,
+            please contact ProPrinterServices using the contact
+            information provided on this website.
+        </p>
 
     </div>
 
-
-    <!-- How We Use Information -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-gear"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>2. How We Use Your Information</h3>
-
-        <p class="text-slate mb-0">
-          We may use the information you provide to respond to inquiries,
-          discuss your printer support needs, schedule or coordinate service
-          visits, communicate with you about your request, provide customer
-          support, maintain business records, improve our services, and
-          protect the security and functionality of our website.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Service Information -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-printer"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>3. Printer & Service Information</h3>
-
-        <p class="text-slate mb-0">
-          To help determine the appropriate support, we may receive
-          information about your printer, including its manufacturer, model,
-          connection type, operating system, or a description of the issue
-          you are experiencing. Please do not provide passwords, financial
-          account credentials, or other highly sensitive information unless
-          specifically required and requested through an appropriate secure
-          method.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Cookies -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-cookie"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>4. Cookies & Website Technologies</h3>
-
-        <p class="text-slate mb-0">
-          Our website may use cookies and similar technologies to support
-          website functionality, remember preferences, understand website
-          traffic, measure performance, and improve the user experience.
-          Depending on the technologies implemented on the website, some
-          information may be collected automatically when you visit the site.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Analytics -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-bar-chart"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>5. Analytics & Website Usage</h3>
-
-        <p class="text-slate mb-0">
-          We may use analytics or similar services to understand how visitors
-          interact with our website, such as pages viewed, approximate
-          geographic information, browser type, device information, referring
-          pages, and general website usage. Where required by applicable law,
-          appropriate consent may be obtained before using non-essential
-          tracking technologies.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Information Sharing -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-share"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>6. Information Sharing</h3>
-
-        <p class="text-slate mb-0">
-          We do not sell or rent your personal information. We may share
-          information with service providers that help us operate our
-          website, communications, scheduling, hosting, analytics, or other
-          business functions. Information may also be disclosed when required
-          by law, legal process, or when reasonably necessary to protect our
-          rights, users, property, or website.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Data Security -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-shield-check"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>7. Data Security</h3>
-
-        <p class="text-slate mb-0">
-          We use reasonable administrative, technical, and organizational
-          measures designed to protect personal information against
-          unauthorized access, loss, misuse, alteration, or disclosure.
-          However, no internet transmission or electronic storage system can
-          be guaranteed to be completely secure.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Data Retention -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-clock-history"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>8. Data Retention</h3>
-
-        <p class="text-slate mb-0">
-          We retain personal information only for as long as reasonably
-          necessary for the purposes described in this Privacy Policy,
-          including responding to requests, providing services, maintaining
-          appropriate business records, resolving disputes, protecting our
-          rights, and complying with applicable legal obligations.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Third Party -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-box-arrow-up-right"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>9. Third-Party Services & Links</h3>
-
-        <p class="text-slate mb-0">
-          Our website may contain links to third-party websites or use
-          third-party services such as hosting providers, analytics tools,
-          communication services, maps, or other website technologies.
-          Third-party services operate under their own privacy policies, and
-          we are not responsible for the privacy practices of websites or
-          services that we do not control.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Your Rights -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-person-check"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>10. Your Privacy Rights</h3>
-
-        <p class="text-slate mb-0">
-          Depending on your location and applicable privacy laws, you may
-          have rights relating to your personal information, including the
-          right to request access to, correction of, or deletion of certain
-          information. You may also have additional rights regarding certain
-          data processing activities. To make a privacy request, please
-          contact us using the contact information provided on this website.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Children's Privacy -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-person"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>11. Children's Privacy</h3>
-
-        <p class="text-slate mb-0">
-          Our website and services are intended for a general audience. We do
-          not knowingly request personal information from children under the
-          age of 13. If you believe that a child has provided personal
-          information to us, please contact us so that we can review and take
-          appropriate action.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Communications -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-telephone"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>12. Communications</h3>
-
-        <p class="text-slate mb-0">
-          If you provide your telephone number or email address, we may use
-          it to respond to your inquiry, discuss requested printer support,
-          coordinate an appointment, or provide information related to a
-          service you have requested. We do not use your contact information
-          for unrelated marketing purposes without an appropriate basis or
-          consent where required.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Policy Changes -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-file-earmark-text"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>13. Changes to This Privacy Policy</h3>
-
-        <p class="text-slate mb-0">
-          We may update this Privacy Policy from time to time to reflect
-          changes to our services, website, technology, or applicable legal
-          requirements. Any updated version will be posted on this page with
-          a revised "Last Updated" date.
-        </p>
-      </div>
-
-    </div>
-
-
-    <!-- Contact -->
-    <div class="svc-row row align-items-center g-4">
-
-      <div class="col-md-1">
-        <div class="card-icon">
-          <i class="bi bi-envelope"></i>
-        </div>
-      </div>
-
-      <div class="col-md-7">
-        <h3>14. Contact Us</h3>
-
-        <p class="text-slate mb-0">
-          If you have questions about this Privacy Policy, want to request
-          access to or correction of your personal information, or have
-          concerns about how your information is handled, please contact
-          Printer Support using the contact details provided on our website.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
 </section>
 
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <a class="brand mb-3 d-inline-flex" style="color:#FAF8F4" href="index.html">
-   
-    ProPrinterServices
-</a>
-        <p>Printer setup, installation, configuration, and troubleshooting support for homes and businesses.</p>
-      </div>
-      <div class="col-md-2 col-6">
-        <h5>Important</h5>
-        <ul class="list-unstyled d-flex flex-column gap-2">
-          <li><a href="#privacy">Privacy Policy</a></li>
-          <li><a href="#contact">Contact</a></li>
-		 
-        </ul>
-      </div>
-      <div class="col-md-3 col-6">
-        <h5>Contact</h5>
-        <ul class="list-unstyled d-flex flex-column gap-2">
-          <li><i class="bi bi-telephone me-2"></i>+1 (834) 567-4567</li>
-          <li><i class="bi bi-geo-alt me-2"></i>14 Rosemont Lane, New York, NY 10001, USA.</li>
-        </ul>
-      </div>
-      <div class="col-md-3">
-        <h5>Hours</h5>
-        <ul class="list-unstyled d-flex flex-column gap-2">
-          <li>Mon–Fri: 8:00 AM – 6:00 PM</li>
-          <li>Sat: 9:00 AM – 2:00 PM</li>
-          <li>Sun: Closed</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
-      <span>&copy; 2026 ProPrinterServices. All rights reserved.</span>
-    </div>
-  </div>
-</footer>
+    <!-- ================= FOOTER ================= -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="footer">
+
+        <a href="#privacy">
+            Privacy Policy
+        </a>
+
+        
+
+        <a href="#contact">
+            Contact Us
+        </a>
+
+        <a href="tel:+18345674567">
+            Call Support
+        </a>
+
+        <p>
+            © 2026 ProPrinterServices.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= FAQ SCRIPT ================= -->
+
+    <script>
+
+        const questions =
+            document.querySelectorAll(".faq-question");
+
+        questions.forEach(function(question) {
+
+            question.addEventListener("click", function() {
+
+                const answer =
+                    this.nextElementSibling;
+
+                const isOpen =
+                    answer.style.display === "block";
+
+                document
+                    .querySelectorAll(".faq-answer")
+                    .forEach(function(item) {
+                        item.style.display = "none";
+                    });
+
+                answer.style.display =
+                    isOpen ? "none" : "block";
+
+            });
+
+        });
+
+    </script>
+
 </body>
 </html>
