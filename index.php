@@ -73,9 +73,9 @@
         }
 
         .hero > p {
-            max-width: 700px;
+            max-width: 650px;
             margin: 0 auto;
-            font-size: 19px;
+            font-size: 21px;
             opacity: 0.95;
         }
 
@@ -138,6 +138,7 @@
             text-align: center;
             font-size: 16px;
             border-left: 4px solid #007bff;
+            border-right: 4px solid #007bff;
             box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
             transition: 0.2s ease;
         }
